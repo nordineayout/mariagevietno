@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Virginie & Nordine — Mariage</title>
+  <meta name="description" content="Invitation de mariage de Virginie et Nordine" />
+  <style>
+    :root {
+      --bg:#f8f3ee;
+      --paper:rgba(255,255,255,.72);
+      --text:#2f2430;
+      --muted:#6f6370;
+      --accent:#b7846b;
+      --accent-2:#d9b8a7;
+      --line:rgba(47,36,48,.12);
+      --shadow:0 20px 60px rgba(44,32,38,.12);
+      --radius:28px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(217,184,167,.45), transparent 35%),
+        radial-gradient(circle at bottom right, rgba(183,132,107,.18), transparent 30%),
+        linear-gradient(180deg,#fbf7f3 0%, #f3ece6 100%);
+      line-height:1.6;
+    }
+    .wrap{max-width:1120px;margin:0 auto;padding:24px}
+    .hero{
+      min-height:100vh;
+      display:grid;
+      place-items:center;
+      padding:36px 0;
+    }
+    .hero-card{
+      width:100%;
+      background:var(--paper);
+      border:1px solid rgba(255,255,255,.45);
+      backdrop-filter:blur(14px);
+      box-shadow:var(--shadow);
+      border-radius:36px;
+      overflow:hidden;
+    }
+    .hero-grid{
+      display:grid;
+      grid-template-columns:1.15fr .85fr;
+    }
+    .hero-main{padding:64px 56px 48px}
+    .eyebrow{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      font-size:.82rem;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+      color:var(--muted);
+      margin-bottom:18px;
+    }
+    .eyebrow::before,.eyebrow::after{content:"";width:32px;height:1px;background:var(--accent)}
+    h1{
+      margin:0;
+      font-family:Georgia, 'Times New Roman', serif;
+      font-size:clamp(3rem,7vw,5.8rem);
+      line-height:.96;
+      font-weight:600;
+      letter-spacing:-.03em;
+    }
+    .amp{color:var(--accent)}
+    .lead{
+      margin:22px 0 28px;
+      font-size:1.08rem;
+      max-width:58ch;
+      color:#4c414b;
+    }
+    .hero-actions{display:flex;flex-wrap:wrap;gap:14px;margin:30px 0 34px}
+    .btn{
+      text-decoration:none;
+      padding:14px 20px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      color:var(--text);
+      background:rgba(255,255,255,.72);
+      font-weight:600;
+      transition:.25s ease;
+    }
+    .btn.primary{background:var(--accent);color:#fff;border-color:transparent}
+    .btn:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(0,0,0,.08)}
+    .meta{
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:14px;
+      margin-top:26px;
+    }
+    .meta-card{
+      background:rgba(255,255,255,.58);
+      border:1px solid rgba(255,255,255,.5);
+      border-radius:22px;
+      padding:18px;
+    }
+    .meta-card small{display:block;color:var(--muted);margin-bottom:6px}
+    .meta-card strong{font-size:1.06rem}
+    .side{
+      background:linear-gradient(180deg, rgba(183,132,107,.18), rgba(255,255,255,.28));
+      padding:36px;
+      border-left:1px solid rgba(47,36,48,.08);
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+      gap:24px;
+    }
+    .countdown{
+      background:rgba(255,255,255,.72);
+      border-radius:28px;
+      padding:24px;
+      box-shadow:inset 0 1px 0 rgba(255,255,255,.55);
+    }
+    .countdown h2,.section h2{
+      margin:0 0 14px;
+      font-size:1rem;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+      color:var(--muted);
+    }
+    .timer{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+    .time-box{
+      background:#fff;
+      border-radius:20px;
+      padding:18px 14px;
+      text-align:center;
+      border:1px solid rgba(47,36,48,.06);
+    }
+    .time-box span{display:block}
+    .time-box .n{font-size:2rem;font-weight:700;color:var(--accent)}
+    .time-box .l{font-size:.88rem;color:var(--muted)}
+    .quote{
+      padding:22px 24px;
+      border-radius:24px;
+      background:rgba(255,255,255,.58);
+      color:#5a4c57;
+      font-style:italic;
+      font-size:1rem;
+    }
+    section{padding:28px 0}
+    .panel{
+      background:rgba(255,255,255,.72);
+      border:1px solid rgba(255,255,255,.45);
+      border-radius:32px;
+      box-shadow:var(--shadow);
+      padding:34px;
+    }
+    .section-head{display:flex;justify-content:space-between;align-items:end;gap:16px;flex-wrap:wrap;margin-bottom:18px}
+    .section-head p{margin:0;color:var(--muted);max-width:60ch}
+    .timeline{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+    .event{
+      border:1px solid var(--line);
+      border-radius:24px;
+      padding:22px;
+      background:linear-gradient(180deg, rgba(255,255,255,.9), rgba(248,243,238,.9));
+    }
+    .event .time{display:inline-block;padding:6px 12px;border-radius:999px;background:rgba(183,132,107,.12);color:#845f4d;font-weight:700;margin-bottom:12px}
+    .event h3{margin:0 0 8px;font-size:1.15rem}
+    .event p{margin:0;color:#5a4e58}
+    .places{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    .place,.rsvp,.contact{
+      border:1px solid var(--line);
+      border-radius:24px;
+      padding:24px;
+      background:rgba(255,255,255,.76);
+    }
+    .place h3,.rsvp h3,.contact h3{margin-top:0;margin-bottom:10px}
+    .place a,.contact a{color:var(--accent);text-decoration:none;font-weight:600}
+    .rsvp-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:16px;align-items:center}
+    .qr{
+      aspect-ratio:1/1;
+      width:min(260px,100%);
+      margin-left:auto;
+      background:#fff;
+      border-radius:24px;
+      display:grid;
+      place-items:center;
+      border:1px solid var(--line);
+      padding:16px;
+    }
+    .qr img{width:100%;height:100%;object-fit:contain}
+    footer{padding:18px 0 46px;color:var(--muted);text-align:center}
+    @media (max-width: 900px){
+      .hero-grid,.timeline,.places,.rsvp-grid{grid-template-columns:1fr}
+      .side{border-left:0;border-top:1px solid rgba(47,36,48,.08)}
+      .meta{grid-template-columns:1fr}
+      .hero-main{padding:42px 26px 32px}
+      .side,.panel{padding:24px}
+      .qr{margin:0 auto}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="hero">
+      <div class="hero-card">
+        <div class="hero-grid">
+          <div class="hero-main">
+            <div class="eyebrow">Mariage • 22 mai 2027</div>
+            <h1>Virginie <span class="amp">&</span><br>Nordine</h1>
+            <p class="lead">C’est officiel, nous nous marions. Rejoignez-nous à la Maison Communale de La Louvière à 15h30 pour célébrer ce moment unique, puis au Bois d’Arpes à partir de 16h30 pour le vin d’honneur, le repas et une belle soirée de fête.</p>
+            <div class="hero-actions">
+              <a class="btn primary" href="#rsvp">Confirmer ma présence</a>
+              <a class="btn" href="mailto:virginie.gielis@gmail.com">Nous écrire</a>
+              <a class="btn" href="tel:+32472355792">Appeler</a>
+            </div>
+            <div class="meta">
+              <div class="meta-card">
+                <small>Date</small>
+                <strong>Samedi 22 mai 2027</strong>
+              </div>
+              <div class="meta-card">
+                <small>Cérémonie</small>
+                <strong>15h30 • La Louvière</strong>
+              </div>
+              <div class="meta-card">
+                <small>Réception</small>
+                <strong>16h30 • Nivelles</strong>
+              </div>
+            </div>
+          </div>
+          <aside class="side">
+            <div class="countdown">
+              <h2>Compte à rebours</h2>
+              <div class="timer">
+                <div class="time-box"><span class="n" id="days">0</span><span class="l">Jours</span></div>
+                <div class="time-box"><span class="n" id="hours">00</span><span class="l">Heures</span></div>
+                <div class="time-box"><span class="n" id="minutes">00</span><span class="l">Minutes</span></div>
+                <div class="time-box"><span class="n" id="seconds">00</span><span class="l">Secondes</span></div>
+              </div>
+            </div>
+            <div class="quote" id="quote">Le plus beau des voyages commence à deux.</div>
+          </aside>
+        </div>
+      </div>
+    </header>
+
+    <section>
+      <div class="panel">
+        <div class="section-head">
+          <div>
+            <h2>Le programme</h2>
+            <p>Nous serions très heureux de partager cette journée avec vous, depuis la cérémonie jusqu’à la soirée.</p>
+          </div>
+        </div>
+        <div class="timeline">
+          <article class="event">
+            <div class="time">15h30</div>
+            <h3>Maison Communale</h3>
+            <p>Rendez-vous à la Maison Communale, Place communale, 7100 La Louvière, pour célébrer officiellement notre union.</p>
+          </article>
+          <article class="event">
+            <div class="time">16h30</div>
+            <h3>Vin d’honneur</h3>
+            <p>Retrouvons-nous au Bois d’Arpes, Chaussée de Mons 30, 1400 Nivelles, pour partager un moment convivial.</p>
+          </article>
+          <article class="event">
+            <div class="time">Soirée</div>
+            <h3>Repas & fête</h3>
+            <p>La célébration se poursuivra autour d’un repas et d’une belle soirée pour marquer ce grand jour avec vous.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="panel">
+        <div class="section-head">
+          <div>
+            <h2>Lieux</h2>
+            <p>Vous trouverez ci-dessous les deux adresses importantes de la journée, avec accès direct à l’itinéraire.</p>
+          </div>
+        </div>
+        <div class="places">
+          <article class="place">
+            <h3>Maison Communale</h3>
+            <p>Place communale<br>7100 La Louvière</p>
+            <p><a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Place+communale+7100+La+Louvi%C3%A8re">Ouvrir dans Google Maps</a></p>
+          </article>
+          <article class="place">
+            <h3>Le Bois d’Arpes</h3>
+            <p>Chaussée de Mons 30<br>1400 Nivelles</p>
+            <p><a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Chauss%C3%A9e+de+Mons+30+1400+Nivelles">Ouvrir dans Google Maps</a></p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="rsvp">
+      <div class="panel">
+        <div class="section-head">
+          <div>
+            <h2>Confirmation</h2>
+            <p>Merci de nous confirmer votre présence au plus tard pour le 22 février 2027, en mentionnant le nombre d’adultes et d’enfants.</p>
+          </div>
+        </div>
+        <div class="rsvp-grid">
+          <div class="rsvp">
+            <h3>Répondre par email ou téléphone</h3>
+            <p>Merci d’indiquer votre nom, le nombre d’adultes et le nombre d’enfants dans votre message.</p>
+            <p><strong>Email :</strong> <a href="mailto:virginie.gielis@gmail.com?subject=Confirmation%20de%20pr%C3%A9sence%20mariage&body=Bonjour%2C%0A%0ANom%20%3A%0AAdultes%20%3A%0AEnfants%20%3A%0A%0ANous%20confirmons%20notre%20pr%C3%A9sence%20au%20mariage.">virginie.gielis@gmail.com</a></p>
+            <p><strong>Gsm :</strong> <a href="tel:+32472355792">0472/35.57.92</a></p>
+            <p><strong>Date limite :</strong> 22 février 2027</p>
+          </div>
+          <div class="qr">
+            <img alt="QR code RSVP" src="https://api.qrserver.com/v1/create-qr-code/?size=320x320&data=https%3A%2F%2Fmail.google.com%2Fmail%2F%3Fview%3Dcm%26fs%3D1%26to%3Dvirginie.gielis%40gmail.com%26su%3DConfirmation%2520de%2520pr%25C3%25A9sence%2520mariage%26body%3DBonjour%252C%250A%250ANom%2520%253A%250AAdultes%2520%253A%250AEnfants%2520%253A%250A%250ANous%2520confirmons%2520notre%2520pr%25C3%25A9sence%2520au%2520mariage." />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="panel contact">
+        <h2>Contact</h2>
+        <p>Pour toute question pratique, vous pouvez nous joindre facilement par email ou par téléphone.</p>
+        <p><strong>Virginie & Nordine</strong><br>
+        <a href="mailto:virginie.gielis@gmail.com">virginie.gielis@gmail.com</a><br>
+        <a href="tel:+32472355792">0472/35.57.92</a></p>
+      </div>
+    </section>
+
+    <footer>
+      Avec joie, nous avons hâte de partager cette magnifique journée avec vous.
+    </footer>
+  </div>
+
+  <script>
+    const targetDate = new Date('2027-05-22T15:30:00');
+    const quotes = [
+      'Deux âmes, un seul cœur.',
+      'Le plus beau des voyages commence à deux.',
+      'Chaque seconde nous rapproche du grand oui.',
+      'Une promesse d’amour, une journée de fête.',
+      'Bientôt, notre histoire s’écrira pour toujours.'
+    ];
+
+    function pad(n){ return String(n).padStart(2,'0'); }
+    function updateCountdown(){
+      const now = new Date();
+      let diff = Math.max(0, targetDate - now);
+      const days = Math.floor(diff / 86400000);
+      diff -= days * 86400000;
+      const hours = Math.floor(diff / 3600000);
+      diff -= hours * 3600000;
+      const minutes = Math.floor(diff / 60000);
+      diff -= minutes * 60000;
+      const seconds = Math.floor(diff / 1000);
+      document.getElementById('days').textContent = days;
+      document.getElementById('hours').textContent = pad(hours);
+      document.getElementById('minutes').textContent = pad(minutes);
+      document.getElementById('seconds').textContent = pad(seconds);
+    }
+    document.getElementById('quote').textContent = quotes[Math.floor(Math.random()*quotes.length)];
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+  </script>
+</body>
+</html>
