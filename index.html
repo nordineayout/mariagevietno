@@ -6,246 +6,366 @@
   <title>Virginie & Nordine — Mariage</title>
   <meta name="description" content="Invitation de mariage de Virginie et Nordine" />
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap');
+
     :root {
-      --bg:#f8f3ee;
-      --paper:rgba(255,255,255,.72);
-      --text:#2f2430;
-      --muted:#6f6370;
-      --accent:#b7846b;
-      --accent-2:#d9b8a7;
-      --line:rgba(47,36,48,.12);
-      --shadow:0 20px 60px rgba(44,32,38,.12);
-      --radius:28px;
+      --bg:#f6e6ea;
+      --bg-2:#fceff2;
+      --paper:rgba(255,250,251,.78);
+      --paper-strong:rgba(255,248,250,.92);
+      --text:#5b3140;
+      --muted:#8a6170;
+      --accent:#c61f5d;
+      --accent-strong:#a90f4b;
+      --accent-soft:#f7bfd1;
+      --line:rgba(166,31,79,.12);
+      --shadow:0 24px 65px rgba(144,34,74,.14);
+      --shadow-soft:0 18px 40px rgba(144,34,74,.10);
+      --radius:34px;
     }
+
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
+
     body{
       margin:0;
       font-family:Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
       color:var(--text);
       background:
-        radial-gradient(circle at top left, rgba(217,184,167,.45), transparent 35%),
-        radial-gradient(circle at bottom right, rgba(183,132,107,.18), transparent 30%),
-        linear-gradient(180deg,#fbf7f3 0%, #f3ece6 100%);
-      line-height:1.6;
+        radial-gradient(circle at top left, rgba(255,206,220,.60), transparent 30%),
+        radial-gradient(circle at 85% 20%, rgba(255,240,245,.75), transparent 28%),
+        linear-gradient(180deg, #f8e9ed 0%, #f3dde3 100%);
+      line-height:1.65;
     }
-    .wrap{max-width:1120px;margin:0 auto;padding:24px}
+
+    .wrap{max-width:1180px;margin:0 auto;padding:30px 22px 40px}
+
     .hero{
       min-height:100vh;
       display:grid;
       place-items:center;
-      padding:36px 0;
+      padding:24px 0 18px;
     }
-    .hero-card{
-      width:100%;
+
+    .hero-card,
+    .panel,
+    .quote-band{
       background:var(--paper);
       border:1px solid rgba(255,255,255,.45);
       backdrop-filter:blur(14px);
       box-shadow:var(--shadow);
-      border-radius:36px;
-      overflow:hidden;
+      border-radius:38px;
     }
+
+    .hero-card{overflow:hidden}
+
     .hero-grid{
       display:grid;
       grid-template-columns:1.15fr .85fr;
+      align-items:stretch;
     }
+
     .hero-main{padding:64px 56px 48px}
+
+    .top-hearts{
+      text-align:center;
+      color:var(--accent);
+      font-size:2.2rem;
+      margin-bottom:10px;
+      letter-spacing:.2em;
+    }
+
     .eyebrow{
       display:inline-flex;
       align-items:center;
       gap:10px;
-      font-size:.82rem;
-      letter-spacing:.18em;
+      font-size:.84rem;
+      letter-spacing:.2em;
       text-transform:uppercase;
       color:var(--muted);
       margin-bottom:18px;
     }
-    .eyebrow::before,.eyebrow::after{content:"";width:32px;height:1px;background:var(--accent)}
+
+    .eyebrow::before,.eyebrow::after{
+      content:"";
+      width:36px;
+      height:1px;
+      background:linear-gradient(90deg, transparent, var(--accent), transparent);
+    }
+
     h1{
       margin:0;
-      font-family:Georgia, 'Times New Roman', serif;
-      font-size:clamp(3rem,7vw,5.8rem);
-      line-height:.96;
+      font-family:'Great Vibes', cursive;
+      font-size:clamp(4rem,8vw,7rem);
+      line-height:1;
+      font-weight:400;
+      color:var(--accent);
+      text-align:left;
+      text-shadow:0 2px 0 rgba(255,255,255,.25);
+    }
+
+    .lead-date{
+      margin:18px 0 8px;
+      font-family:'Cormorant Garamond', serif;
+      font-size:clamp(1.6rem,3vw,2.4rem);
+      color:#7d5a67;
       font-weight:600;
-      letter-spacing:-.03em;
     }
-    .amp{color:var(--accent)}
+
     .lead{
-      margin:22px 0 28px;
-      font-size:1.08rem;
-      max-width:58ch;
-      color:#4c414b;
+      margin:18px 0 28px;
+      font-size:1.07rem;
+      max-width:60ch;
+      color:#684754;
     }
-    .hero-actions{display:flex;flex-wrap:wrap;gap:14px;margin:30px 0 34px}
+
+    .hero-actions{display:flex;flex-wrap:wrap;gap:14px;margin:26px 0 32px}
+
     .btn{
       text-decoration:none;
-      padding:14px 20px;
+      padding:14px 22px;
       border-radius:999px;
       border:1px solid var(--line);
       color:var(--text);
-      background:rgba(255,255,255,.72);
+      background:rgba(255,255,255,.75);
       font-weight:600;
       transition:.25s ease;
+      box-shadow:var(--shadow-soft);
     }
-    .btn.primary{background:var(--accent);color:#fff;border-color:transparent}
-    .btn:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(0,0,0,.08)}
+
+    .btn.primary{
+      background:linear-gradient(135deg, var(--accent), var(--accent-strong));
+      color:#fff;
+      border-color:transparent;
+    }
+
+    .btn:hover{transform:translateY(-2px)}
+
     .meta{
       display:grid;
       grid-template-columns:repeat(3,minmax(0,1fr));
       gap:14px;
-      margin-top:26px;
+      margin-top:20px;
     }
+
     .meta-card{
-      background:rgba(255,255,255,.58);
+      background:rgba(255,255,255,.62);
       border:1px solid rgba(255,255,255,.5);
-      border-radius:22px;
-      padding:18px;
+      border-radius:26px;
+      padding:20px 18px;
+      text-align:center;
+      box-shadow:var(--shadow-soft);
     }
-    .meta-card small{display:block;color:var(--muted);margin-bottom:6px}
-    .meta-card strong{font-size:1.06rem}
+
+    .meta-card small{
+      display:block;
+      color:var(--muted);
+      margin-bottom:8px;
+      text-transform:uppercase;
+      letter-spacing:.12em;
+      font-size:.78rem;
+    }
+
+    .meta-card strong{
+      font-size:1.08rem;
+      font-family:'Cormorant Garamond', serif;
+      color:var(--accent-strong);
+    }
+
     .side{
-      background:linear-gradient(180deg, rgba(183,132,107,.18), rgba(255,255,255,.28));
+      background:linear-gradient(180deg, rgba(255,215,226,.45), rgba(255,250,251,.45));
       padding:36px;
-      border-left:1px solid rgba(47,36,48,.08);
+      border-left:1px solid rgba(198,31,93,.10);
       display:flex;
       flex-direction:column;
-      justify-content:space-between;
-      gap:24px;
+      justify-content:center;
+      gap:22px;
     }
-    .countdown{
-      background:rgba(255,255,255,.72);
-      border-radius:28px;
-      padding:24px;
-      box-shadow:inset 0 1px 0 rgba(255,255,255,.55);
-    }
-    .countdown h2,.section h2{
-      margin:0 0 14px;
-      font-size:1rem;
-      letter-spacing:.14em;
-      text-transform:uppercase;
-      color:var(--muted);
-    }
-    .timer{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
-    .time-box{
-      background:#fff;
-      border-radius:20px;
-      padding:18px 14px;
-      text-align:center;
-      border:1px solid rgba(47,36,48,.06);
-    }
-    .time-box span{display:block}
-    .time-box .n{font-size:2rem;font-weight:700;color:var(--accent)}
-    .time-box .l{font-size:.88rem;color:var(--muted)}
-    .quote{
-      padding:22px 24px;
-      border-radius:24px;
-      background:rgba(255,255,255,.58);
-      color:#5a4c57;
-      font-style:italic;
-      font-size:1rem;
-    }
-    section{padding:28px 0}
-    .panel{
-      background:rgba(255,255,255,.72);
-      border:1px solid rgba(255,255,255,.45);
-      border-radius:32px;
-      box-shadow:var(--shadow);
-      padding:34px;
-    }
-    .section-head{display:flex;justify-content:space-between;align-items:end;gap:16px;flex-wrap:wrap;margin-bottom:18px}
-    .section-head p{margin:0;color:var(--muted);max-width:60ch}
-    .timeline{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
-    .event{
-      border:1px solid var(--line);
-      border-radius:24px;
-      padding:22px;
-      background:linear-gradient(180deg, rgba(255,255,255,.9), rgba(248,243,238,.9));
-    }
-    .event .time{display:inline-block;padding:6px 12px;border-radius:999px;background:rgba(183,132,107,.12);color:#845f4d;font-weight:700;margin-bottom:12px}
-    .event h3{margin:0 0 8px;font-size:1.15rem}
-    .event p{margin:0;color:#5a4e58}
-    .places{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-    .place,.rsvp,.contact{
-      border:1px solid var(--line);
-      border-radius:24px;
-      padding:24px;
-      background:rgba(255,255,255,.76);
-    }
-    .place h3,.rsvp h3,.contact h3{margin-top:0;margin-bottom:10px}
-    .place a,.contact a{color:var(--accent);text-decoration:none;font-weight:600}
-    .rsvp-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:16px;align-items:center}
-    .qr{
-      aspect-ratio:1/1;
-      width:min(260px,100%);
-      margin-left:auto;
-      background:#fff;
-      border-radius:24px;
+
+    .rings{
       display:grid;
       place-items:center;
-      border:1px solid var(--line);
-      padding:16px;
+      min-height:180px;
+      background:rgba(255,255,255,.55);
+      border-radius:30px;
+      box-shadow:var(--shadow-soft);
     }
-    .qr img{width:100%;height:100%;object-fit:contain}
-    footer{padding:18px 0 46px;color:var(--muted);text-align:center}
-    @media (max-width: 900px){
-      .hero-grid,.timeline,.places,.rsvp-grid{grid-template-columns:1fr}
-      .side{border-left:0;border-top:1px solid rgba(47,36,48,.08)}
+
+    .countdown{
+      background:var(--paper-strong);
+      border-radius:30px;
+      padding:24px;
+      box-shadow:var(--shadow-soft);
+      text-align:center;
+    }
+
+    .countdown h2,.section-title{
+      margin:0 0 16px;
+      font-family:'Cormorant Garamond', serif;
+      font-size:2rem;
+      color:var(--accent-strong);
+      font-weight:700;
+    }
+
+    .timer{
+      display:grid;
+      grid-template-columns:repeat(4,minmax(0,1fr));
+      gap:14px;
+    }
+
+    .time-box{
+      background:#fff;
+      border-radius:24px;
+      padding:18px 10px;
+      text-align:center;
+      border:1px solid rgba(198,31,93,.08);
+    }
+
+    .time-box span{display:block}
+    .time-box .n{
+      font-family:'Cormorant Garamond', serif;
+      font-size:2.8rem;
+      line-height:1;
+      font-weight:700;
+      color:var(--accent);
+    }
+    .time-box .l{
+      font-size:.92rem;
+      color:var(--muted);
+      margin-top:8px;
+    }
+
+    .quote-band{
+      margin:0 auto 26px;
+      padding:28px 30px;
+      text-align:center;
+      font-family:'Cormorant Garamond', serif;
+      font-style:italic;
+      font-size:clamp(2rem,3vw,3.2rem);
+      color:var(--accent-strong);
+    }
+
+    section{padding:18px 0}
+
+    .panel{padding:34px}
+
+    .section-head{display:flex;justify-content:space-between;align-items:end;gap:16px;flex-wrap:wrap;margin-bottom:18px}
+    .section-head p{margin:0;color:var(--muted);max-width:60ch}
+
+    .section-title{
+      margin:0;
+      font-size:2.2rem;
+    }
+
+    .timeline{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+
+    .event,.place,.rsvp,.contact-card{
+      border:1px solid var(--line);
+      border-radius:28px;
+      padding:24px;
+      background:linear-gradient(180deg, rgba(255,255,255,.96), rgba(255,245,248,.96));
+      box-shadow:var(--shadow-soft);
+    }
+
+    .event .time{
+      display:inline-block;
+      padding:7px 14px;
+      border-radius:999px;
+      background:rgba(198,31,93,.10);
+      color:var(--accent-strong);
+      font-weight:700;
+      margin-bottom:14px;
+    }
+
+    .event h3,.place h3,.rsvp h3,.contact-card h3{
+      margin:0 0 8px;
+      font-family:'Cormorant Garamond', serif;
+      font-size:1.6rem;
+      color:var(--accent-strong);
+    }
+
+    .event p,.place p,.rsvp p,.contact-card p{margin:0;color:#6f4c59}
+    .event p + p,.place p + p,.rsvp p + p,.contact-card p + p{margin-top:10px}
+
+    .places{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    .place a,.rsvp a,.contact-card a{color:var(--accent);text-decoration:none;font-weight:700}
+
+    .rsvp-grid{display:grid;grid-template-columns:1fr;gap:16px;align-items:center}
+    .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+
+    footer{
+      padding:24px 0 44px;
+      color:var(--muted);
+      text-align:center;
+      font-family:'Cormorant Garamond', serif;
+      font-size:1.35rem;
+    }
+
+    @media (max-width: 980px){
+      .hero-grid,.timeline,.places,.contact-grid{grid-template-columns:1fr}
+      .side{border-left:0;border-top:1px solid rgba(198,31,93,.08)}
+      .timer{grid-template-columns:repeat(2,minmax(0,1fr))}
       .meta{grid-template-columns:1fr}
-      .hero-main{padding:42px 26px 32px}
+      .hero-main{padding:40px 24px 30px}
       .side,.panel{padding:24px}
-      .qr{margin:0 auto}
+      h1{text-align:center}
+      .eyebrow,.lead-date,.lead,.hero-actions{text-align:center;justify-content:center}
     }
   </style>
 </head>
 <body>
   <div class="wrap">
     <header class="hero">
-      <div class="hero-card">
-        <div class="hero-grid">
-          <div class="hero-main">
-            <div class="eyebrow">Mariage • 22 mai 2027</div>
-            <h1>Virginie <span class="amp">&</span><br>Nordine</h1>
-            <p class="lead">C’est officiel, nous nous marions. Rejoignez-nous à la Maison Communale de La Louvière à 15h30 pour célébrer ce moment unique, puis à la salle Le Bois d’Arpes à partir de 16h30 pour le vin d’honneur, le repas et une belle soirée de fête.</p>
-            <div class="hero-actions">
-              <a class="btn primary" href="#rsvp">Confirmation de présence</a>
+      <div style="width:100%">
+        <div class="hero-card">
+          <div class="hero-grid">
+            <div class="hero-main">
+              <div class="eyebrow">Mariage • 22 mai 2027<br><br></div>
+              <h1>💞 Virginie & Nordine 💕</h1>
+              <div class="lead-date">Le grand jour approche… le 22 mai 2027 à 15h30</div>
+              <p class="lead">C’est officiel, nous nous marions. Rejoignez-nous à la Maison Communale de La Louvière à 15h30 pour célébrer ce moment unique, puis à la salle Le Bois d’Arpes à partir de 16h30 pour le vin d’honneur, le repas et une belle soirée de fête.</p>
+              <div class="hero-actions">
+                <a class="btn primary" href="#rsvp">Confirmation de présence</a>
+              </div>
+              <div class="meta">
+                <div class="meta-card">
+                  <small>Date</small>
+                  <strong>Samedi 22 mai 2027</strong>
+                </div>
+                <div class="meta-card">
+                  <small>Cérémonie</small>
+                  <strong>15h30<br>La Louvière</strong>
+                </div>
+                <div class="meta-card">
+                  <small>Réception</small>
+                  <strong>16h30<br>Nivelles</strong>
+                </div>
+              </div>
             </div>
-            <div class="meta">
-              <div class="meta-card" align="center">
-                <small>Date</small>
-                <strong>Samedi 22 mai 2027</strong>
+            <aside class="side">
+              <div class="countdown">
+                <h2>⏰ Compte à rebours avant le mariage</h2>
+                <div class="timer">
+                  <div class="time-box"><span class="n" id="days">0</span><span class="l">Jours</span></div>
+                  <div class="time-box"><span class="n" id="hours">00</span><span class="l">Heures</span></div>
+                  <div class="time-box"><span class="n" id="minutes">00</span><span class="l">Minutes</span></div>
+                  <div class="time-box"><span class="n" id="seconds">00</span><span class="l">Secondes</span></div>
+                </div>
               </div>
-              <div class="meta-card" align="center">
-                <small>Cérémonie</small>
-                <strong>15h30<br>La Louvière</strong>
-              </div>
-              <div class="meta-card" align="center">
-                <small>Réception</small>
-                <strong>16h30<br>Nivelles</strong>
-              </div>
-            </div>
+            </aside>
           </div>
-          <aside class="side">
-            <div class="countdown">
-              <h2>Compte à rebours</h2>
-              <div class="timer">
-                <div class="time-box"><span class="n" id="days">0</span><span class="l">Jours</span></div>
-                <div class="time-box"><span class="n" id="hours">00</span><span class="l">Heures</span></div>
-                <div class="time-box"><span class="n" id="minutes">00</span><span class="l">Minutes</span></div>
-                <div class="time-box"><span class="n" id="seconds">00</span><span class="l">Secondes</span></div>
-              </div>
-            </div>
-            <div class="quote" id="quote">Le plus beau des voyages commence à deux.</div>
-          </aside>
         </div>
       </div>
     </header>
+
+    <div class="quote-band" id="quote">« Bientôt, nos cœurs battront à l’unisson pour la vie entière. »</div>
 
     <section>
       <div class="panel">
         <div class="section-head">
           <div>
-            <h2>Le programme</h2>
-            <p>Nous serions très heureux de partager cette journée avec vous, depuis la cérémonie jusqu’à la soirée.</p>
+            <h2 class="section-title">Le programme</h2>
+            <p>Nous serions très heureux de partager cette journée avec vous.</p>
           </div>
         </div>
         <div class="timeline">
@@ -272,7 +392,7 @@
       <div class="panel">
         <div class="section-head">
           <div>
-            <h2>Lieux</h2>
+            <h2 class="section-title">Lieux</h2>
             <p>Vous trouverez ci-dessous les deux adresses importantes de la journée, avec accès direct à l’itinéraire.</p>
           </div>
         </div>
@@ -295,17 +415,18 @@
       <div class="panel">
         <div class="section-head">
           <div>
-            <h2>Confirmation</h2>
+            <h2 class="section-title">Confirmation</h2>
             <p>Merci de nous confirmer votre présence au plus tard pour le 22 février 2027.</p>
           </div>
         </div>
         <div class="rsvp-grid">
           <div class="rsvp">
-            <h3>Répondre par email, téléphone ou google forms</h3>
-            <p>Merci d’indiquer vos noms, prénoms et de préciser les enfants de moins de 16 ans)dans votre message.</p>
-            <p><strong>Email :</strong> <a href="mailto:virginie.gielis@gmail.com?subject=Confirmation%20de%20pr%C3%A9sence%20mariage&body=Bonjour%2C%0A%0ANom%20%3A%0AAdultes%20%3A%0AEnfants%20%3A%0A%0ANous%20confirmons%20notre%20pr%C3%A9sence%20au%20mariage.">virginie.gielis@gmail.com</a></p>
-            <p><strong>Gsm :</strong> <a href="tel:+32472355792">0472/35.57.92</a></p>
-			<p><strong>Google Forms :</strong> <a href="https://docs.google.com/forms/d/e/1FAIpQLSch7sznuXSjTNMWKC1kyibroDFCmgA1T0JEmsBaP7Vb7769yw/viewform?usp=header">Lien</a></p>
+            <h3>Répondre par email, téléphone ou Google Forms</h3>
+            <p>Merci d’indiquer vos noms, prénoms et de préciser les enfants de moins de 16 ans dans votre message.</p>
+            <p><strong>Email :</strong> <a href="mailto:virginie.gielis@gmail.com?subject=Confirmation%20de%20pr%C3%A9sence%20mariage&body=Bonjour%2C%0A%0ANoms%20et%20pr%C3%A9noms%20%3A%0AEnfants%20de%20moins%20de%2016%20ans%20%3A%0A%0ANous%20confirmons%20notre%20pr%C3%A9sence%20au%20mariage.">virginie.gielis@gmail.com</a></p>
+            <p><strong>Gsm Virginie :</strong> <a href="tel:+32472355792">0472/35.57.92</a></p>
+            <p><strong>Gsm Nordine :</strong> <a href="tel:+32472641159">0472/64.11.59</a></p>
+            <p><strong>Google Forms :</strong> <a href="https://docs.google.com/forms/d/e/1FAIpQLSch7sznuXSjTNMWKC1kyibroDFCmgA1T0JEmsBaP7Vb7769yw/viewform?usp=header" target="_blank" rel="noopener">Ouvrir le formulaire</a></p>
             <p><strong>Date limite :</strong> 22 février 2027</p>
           </div>
         </div>
@@ -313,15 +434,25 @@
     </section>
 
     <section>
-      <div class="panel contact">
-        <h2>Contact</h2>
-        <p>Pour toute question pratique, vous pouvez nous joindre facilement par email ou par téléphone.</p>
-        <p><strong>Virginie</strong><br>
-        <a href="mailto:virginie.gielis@gmail.com">virginie.gielis@gmail.com</a><br>
-        <a href="tel:+32472355792">0472/35.57.92</a></p>
-		<p><strong>Virginie</strong><br>
-		<a href="mailto:nordine.ayout@gmail.com">nordine.ayout@gmail.com</a><br>
-        <a href="tel:+32472641159">0472/35.57.92</a></p>
+      <div class="panel">
+        <div class="section-head">
+          <div>
+            <h2 class="section-title">Contact</h2>
+            <p>Pour toute question pratique, vous pouvez nous joindre facilement.</p>
+          </div>
+        </div>
+        <div class="contact-grid">
+          <div class="contact-card">
+            <h3>Virginie</h3>
+            <p><a href="mailto:virginie.gielis@gmail.com">virginie.gielis@gmail.com</a></p>
+            <p><a href="tel:+32472355792">0472/35.57.92</a></p>
+          </div>
+          <div class="contact-card">
+            <h3>Nordine</h3>
+            <p><a href="mailto:nordine.ayout@gmail.com">nordine.ayout@gmail.com</a></p>
+            <p><a href="tel:+32472641159">0472/64.11.59</a></p>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -333,11 +464,11 @@
   <script>
     const targetDate = new Date('2027-05-22T15:30:00');
     const quotes = [
-      'Deux âmes, un seul cœur.',
-      'Le plus beau des voyages commence à deux.',
-      'Chaque seconde nous rapproche du grand oui.',
-      'Une promesse d’amour, une journée de fête.',
-      'Bientôt, notre histoire s’écrira pour toujours.'
+      '« Bientôt, nos cœurs battront à l’unisson pour la vie entière. »',
+      '« Le plus beau des voyages commence à deux. »',
+      '« Chaque seconde nous rapproche du grand oui. »',
+      '« Une promesse d’amour, une journée de fête. »',
+      '« Deux âmes, un seul cœur. »'
     ];
 
     function pad(n){ return String(n).padStart(2,'0'); }
