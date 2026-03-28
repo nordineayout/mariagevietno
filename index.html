@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Compte à rebours mariage</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #fde2e4, #fad2e1, #cddafd);
+      color: #4b2e39;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+    .card {
+      background: rgba(255,255,255,0.88);
+      backdrop-filter: blur(10px);
+      border-radius: 24px;
+      box-shadow: 0 12px 35px rgba(0,0,0,0.12);
+      max-width: 900px;
+      width: 100%;
+      text-align: center;
+      padding: 36px 24px;
+    }
+    h1 { margin-top: 0; font-size: 2.2rem; }
+    .subtitle { font-size: 1.1rem; margin-bottom: 24px; }
+    .quote { font-style: italic; margin: 18px 0 28px; font-size: 1.15rem; }
+    .timer {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(100px, 1fr));
+      gap: 14px;
+      margin: 20px 0 28px;
+    }
+    .box {
+      background: #fff;
+      border-radius: 18px;
+      padding: 18px 10px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+    }
+    .num { font-size: 2rem; font-weight: bold; display: block; }
+    .label { font-size: 0.95rem; opacity: 0.8; }
+    .footer { margin-top: 20px; font-size: 0.98rem; }
+    @media (max-width: 640px) {
+      .timer { grid-template-columns: repeat(2, minmax(120px, 1fr)); }
+      h1 { font-size: 1.7rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Le grand jour approche… 💍</h1>
+    <div class="subtitle">Mariage prévu le <strong id="date"></strong></div>
+    <div class="quote" id="quote"></div>
+    <div class="timer">
+      <div class="box"><span class="num" id="days">0</span><span class="label">Jours</span></div>
+      <div class="box"><span class="num" id="hours">0</span><span class="label">Heures</span></div>
+      <div class="box"><span class="num" id="minutes">0</span><span class="label">Minutes</span></div>
+      <div class="box"><span class="num" id="seconds">0</span><span class="label">Secondes</span></div>
+    </div>
+    <div class="footer" id="message"></div>
+  </div>
+  <script>
+    const targetDate = new Date('2026-12-31T18:00:00');
+    const quotes = ["Deux âmes, un seul cœur : Virginie & Nordine pour toujours 💞", "L’amour, c’est toi et moi, aujourd’hui et à jamais.", "Le compte à rebours du plus beau jour de notre vie a commencé.", "Le mariage, c’est la promesse d’un toujours ensemble.", "Chaque jour passé ensemble est un cadeau précieux.", "Le vrai bonheur, c’est de construire un avenir à deux.", "Bientôt le début d’une éternité à deux 💍", "Le destin nous a unis, et le mariage scellera notre amour.", "Notre histoire d’amour devient éternelle.", "Bientôt, nos cœurs battront à l’unisson pour la vie entière.", "Le plus beau des voyages commence à deux.", "Notre amour est la plus belle promesse de bonheur.", "Deux cœurs, une vie, un amour sans fin.", "Chaque seconde nous rapproche du grand ‘Oui’ 💗", "L’amour rend chaque instant magique.", "Aujourd’hui fiancés, demain mariés, pour toujours liés.", "Main dans la main, nous allons écrire notre histoire.", "Le mariage, c’est l’amour célébré par le temps.", "Virginie & Nordine : une histoire d’amour qui devient éternelle.", "Notre ‘pour toujours’ commence bientôt 💕"];
+
+    function pad(n) { return String(n).padStart(2, '0'); }
+
+    function formatFrenchDate(date) {
+      return new Intl.DateTimeFormat('fr-BE', {
+        day: '2-digit', month: 'long', year: 'numeric', hour: '2-digit', minute: '2-digit'
+      }).format(date).replace(',', ' à');
+    }
+
+    function setRandomQuote() {
+      if (!quotes.length) return;
+      const index = Math.floor(Math.random() * quotes.length);
+      document.getElementById('quote').textContent = quotes[index];
+    }
+
+    function updateCountdown() {
+      const now = new Date();
+      let diff = Math.max(0, targetDate.getTime() - now.getTime());
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      diff -= days * 1000 * 60 * 60 * 24;
+      const hours = Math.floor(diff / (1000 * 60 * 60));
+      diff -= hours * 1000 * 60 * 60;
+      const minutes = Math.floor(diff / (1000 * 60));
+      diff -= minutes * 1000 * 60;
+      const seconds = Math.floor(diff / 1000);
+
+      document.getElementById('days').textContent = days;
+      document.getElementById('hours').textContent = pad(hours);
+      document.getElementById('minutes').textContent = pad(minutes);
+      document.getElementById('seconds').textContent = pad(seconds);
+
+      document.getElementById('message').textContent =
+        targetDate.getTime() > now.getTime()
+          ? 'Chaque seconde vous rapproche du plus beau “Oui”.'
+          : 'Le grand jour est arrivé. Félicitations ❤️';
+    }
+
+    document.getElementById('date').textContent = formatFrenchDate(targetDate);
+    setRandomQuote();
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+  </script>
+</body>
+</html>
