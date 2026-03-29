@@ -96,13 +96,47 @@
     h1{
       margin:0;
       font-family:'Great Vibes', cursive;
-      font-size:clamp(4rem,8vw,7rem);
+      font-size:clamp(2.8rem,5vw,4.8rem);
       line-height:1;
       font-weight:400;
       color:var(--accent);
       text-align:left;
       text-shadow:0 2px 0 rgba(255,255,255,.25);
     }
+	
+	h1.wedding-title{
+	  margin:0;
+	  font-family:'Great Vibes', cursive;
+	  font-size:clamp(2.8rem,5vw,4.8rem);
+	  line-height:1.05;
+	  font-weight:400;
+	  color:var(--accent);
+	  text-align:left;
+	  text-shadow:0 2px 0 rgba(255,255,255,.25);
+	}
+
+	h1.wedding-title span{
+	  display:block;
+	}
+
+	h1.wedding-title .line2{
+	  padding-left:140px;
+	}
+
+	h1.wedding-title .line3{
+	  padding-left:190px;
+	}
+
+	@media (max-width: 980px){
+	  h1.wedding-title{
+		text-align:center;
+	  }
+
+	  h1.wedding-title .line2,
+	  h1.wedding-title .line3{
+		padding-left:0;
+	  }
+	}
 
     .lead-date{
       margin:18px 0 8px;
@@ -321,7 +355,11 @@
           <div class="hero-grid">
             <div class="hero-main">
               <div class="eyebrow">Mariage • 22 mai 2027<br><br></div>
-              <h1>💞 Virginie & Nordine 💕</h1>
+              <h1 class="wedding-title">
+				<span class="line1">💞 Virginie</span>
+				<span class="line2">&</span>
+				<span class="line3">Nordine 💕</span>
+			  </h1>
               <div class="lead-date">Le grand jour approche… le 22 mai 2027 à 15h30</div>
               <p class="lead">C’est officiel, nous nous marions. Rejoignez-nous à la Maison Communale de La Louvière à 15h30 pour célébrer ce moment unique, puis à la salle Le Bois d’Arpes à partir de 16h30 pour le vin d’honneur, le repas et une belle soirée de fête.</p>
               <div class="hero-actions">
@@ -423,11 +461,9 @@
           <div class="rsvp">
             <h3>Répondre par email, téléphone ou Google Forms</h3>
             <p>Merci d’indiquer vos noms, prénoms et de préciser les enfants de moins de 16 ans dans votre message.</p>
-            <p><strong>Email :</strong> <a href="mailto:virginie.gielis@gmail.com?subject=Confirmation%20de%20pr%C3%A9sence%20mariage&body=Bonjour%2C%0A%0ANoms%20et%20pr%C3%A9noms%20%3A%0AEnfants%20de%20moins%20de%2016%20ans%20%3A%0A%0ANous%20confirmons%20notre%20pr%C3%A9sence%20au%20mariage.">virginie.gielis@gmail.com</a></p>
-            <p><strong>Gsm Virginie :</strong> <a href="tel:+32472355792">0472/35.57.92</a></p>
-            <p><strong>Gsm Nordine :</strong> <a href="tel:+32472641159">0472/64.11.59</a></p>
+            <p><strong>Email :</strong> <a href="mailto:virginie.gielis@gmail.com">virginie.gielis@gmail.com</a> / <strong>Gsm :</strong> <a href="tel:+32472355792">0472/35.57.92</a></p>
+            <p><strong>Email :</strong> <a href="mailto:nordine.ayout@gmail.com">nordine.ayout@gmail.com</a> / <strong>Gsm :</strong> <a href="tel:+32472641159">0472/64.11.59</a></p>
             <p><strong>Google Forms :</strong> <a href="https://docs.google.com/forms/d/e/1FAIpQLSch7sznuXSjTNMWKC1kyibroDFCmgA1T0JEmsBaP7Vb7769yw/viewform?usp=header" target="_blank" rel="noopener">Ouvrir le formulaire</a></p>
-            <p><strong>Date limite :</strong> 22 février 2027</p>
           </div>
         </div>
       </div>
